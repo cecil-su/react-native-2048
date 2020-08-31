@@ -1,7 +1,6 @@
 import React from 'react'
 import {View, Text, StyleSheet, TouchableWithoutFeedback} from 'react-native'
 import dim from '../utils/dimensions'
-const {width} = dim.get('window')
 
 const st = StyleSheet.create({
   container: {
@@ -15,7 +14,7 @@ const st = StyleSheet.create({
     justifyContent: 'center'
   },
   row: {
-    width: width - 40,
+    width: dim.width - 40,
     height: 120,
     flexDirection: 'column',
     alignItems: 'center',

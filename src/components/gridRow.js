@@ -1,11 +1,7 @@
 import React from 'react'
 import {View} from 'react-native'
-import dim from '../utils/dimensions'
+import dim, {MARGIN_WIDTH, ITEM_WIDTH} from '../utils/dimensions'
 import GridCell from './gridCell'
-const {width} = dim.get('window')
-
-const MARGIN_WIDTH = dim.size['2']
-const ITEM_WIDTH = (width - dim.size['10'] - MARGIN_WIDTH * 10) / 4
 
 const st = {
   container: {

@@ -1,15 +1,15 @@
 import React from 'react'
 import {View, Text, StyleSheet} from 'react-native'
-import Dimensions from '../utils/dimensions'
+import dim from '../utils/dimensions'
 
 const st = StyleSheet.create({
   heading: {
-    height: Dimensions.size['20'],
-    marginTop: Dimensions.size['12'],
+    height: dim.size['20'],
+    marginTop: dim.size['12'],
     flexDirection: 'row'
   },
   headingTitle: {
-    fontSize: Dimensions.size['12'],
+    fontSize: dim.size['12'],
     color: '#776E65',
     fontWeight: 'bold'
   },
@@ -22,12 +22,10 @@ const st = StyleSheet.create({
   },
   container: {
     backgroundColor: '#bbada0',
-    paddingLeft: Dimensions.size['5'],
-    paddingRight: Dimensions.size['5'],
-    paddingTop: Dimensions.size['2'],
-    paddingBottom: Dimensions.size['2'],
-    borderRadius: Dimensions.size['2'],
-    marginLeft: Dimensions.size['2'],
+    paddingHorizontal: dim.size['5'],
+    paddingVertical: dim.size['2'],
+    borderRadius: dim.size['2'],
+    marginLeft: dim.size['2'],
     flexDirection: 'column',
     alignItems: 'center'
   },
@@ -35,12 +33,12 @@ const st = StyleSheet.create({
     color: '#eee4da',
     textAlign: 'center',
     fontWeight: 'bold',
-    fontSize: Dimensions.size['3'],
+    fontSize: dim.size['3'],
   },
   containerValue: {
     color: '#fff',
     textAlign: 'center',
-    fontSize: Dimensions.size['6'],
+    fontSize: dim.size['6'],
     fontWeight: 'bold'
   }
 })

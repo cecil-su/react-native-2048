@@ -1,25 +1,22 @@
 import React from 'react'
-import {View, Text, StyleSheet} from 'react-native'
-import dim from '../utils/dimensions'
-const {width} = dim.get('window')
+import {View,Text,StyleSheet} from 'react-native'
+import dim, {MARGIN_WIDTH, ITEM_WIDTH} from '../utils/dimensions'
 
-const MARGIN_WIDTH = dim.size['2']
-const ITEM_WIDTH = (width - dim.size['10'] - MARGIN_WIDTH * 10) / 4
 
-const st = StyleSheet.create({
-  tile: {
+const styles = StyleSheet.create({
+  tile:{
     position: 'absolute',
-    borderRadius: dim.size['1'],
-    flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center'
+    borderRadius: dim.size["1"],
+	  flexDirection:"row",
+	  justifyContent:"center",
+    alignItems:"center"
   },
   tileText: {
-    fontSize: dim.size['14'],
-    color: '#776e65',
+    fontSize: dim.size["14"],
+    color: '#776E65',
     textAlign: 'center',
-    textAlignVertical: 'center',
-    flex: 1
+	  textAlignVertical:"center",
+	  flex:1
   },
   tile2: {
     backgroundColor: '#eee4da',
@@ -31,20 +28,20 @@ const st = StyleSheet.create({
     backgroundColor: '#f3b27a',
   },
   tile8Text: {
-    color: '#f9f6f2'
+    color: '#f9f6f2',
   },
   tile16: {
     backgroundColor: '#f69664',
   },
   tile16Text: {
-    color: '#f9f6f2'
+    color: '#f9f6f2',
   },
   tile32: {
     backgroundColor: '#f77c5f',
   },
   tile32Text: {
     color: '#f9f6f2',
-    marginTop: dim.size['2']
+    marginTop: dim.size["2"],
   },
   tile64: {
     backgroundColor: '#f75f3b',
@@ -57,59 +54,61 @@ const st = StyleSheet.create({
   },
   tile128Text: {
     color: '#f9f6f2',
-    fontSize: dim.size['10']
+    fontSize: dim.size["10"]
   },
   tile256: {
     backgroundColor: '#edcc62',
   },
   tile256Text: {
     color: '#f9f6f2',
-    fontSize: dim.size['8'],
-    marginTop: dim.size['2']
+    fontSize: dim.size["8"],
+    marginTop: dim.size["2"],
   },
   tile512: {
     backgroundColor: '#edc950',
   },
   tile512Text: {
     color: '#f9f6f2',
-    fontSize: dim.size['8'],
+    fontSize:dim.size["8"],
   },
   tile1024: {
     backgroundColor: '#edc53f',
   },
   tile1024Text: {
     color: '#f9f6f2',
-    fontSize: dim.size['6'],
+    fontSize: dim.size["6"],
   },
   tile2048: {
     backgroundColor: '#edc22e',
   },
   tile2048Text: {
     color: '#f9f6f2',
-    fontSize: dim.size['6'],
-    marginTop: dim.size['4']
+    fontSize: dim.size["6"],
+    marginTop: dim.size["4"],
   },
   tilesuper: {
     backgroundColor: '#3c3a33',
-    fontSize: dim.size['5']
+    fontSize: dim.size["5"]
   },
   tilesuperText: {
-    color: '#f9f6f2'
-  }
+    color: '#f9f6f2',
+  },
 })
 
-export default (props) => {
-  const tileStyle = props.value <= 2048 ? st[`tile${props.value}`] : st['tilesuper']
+const Tile = (props) => {
+  const tileStyle = props.value<= 2048 ? styles['tile' + props.value] : styles['tilesuper']
   const tilePositionStyle = {
-    left: props.x * (ITEM_WIDTH + MARGIN_WIDTH * 2) + MARGIN_WIDTH * 2,
-    top: props.y * (ITEM_WIDTH + MARGIN_WIDTH * 2) + MARGIN_WIDTH * 2,
+    left: props.x*(ITEM_WIDTH+MARGIN_WIDTH*2)+MARGIN_WIDTH*2,
+    top: props.y*(ITEM_WIDTH+MARGIN_WIDTH*2)+MARGIN_WIDTH*2,
     width: ITEM_WIDTH,
-    height: ITEM_WIDTH
+    height: ITEM_WIDTH,
   }
-  const tileTextStyle = props.value <= 2048 ? st[`tile${props.value}Text`] : st['tilesuperText']
+  const tileTextStyle = props.value<= 2048 ? styles['tile' + props.value + 'Text'] : styles['tilesuperText']
   return (
-    <View style={[st.tile, tileStyle, tilePositionStyle]}>
-      <Text style={[st.tileText, tileTextStyle]}>{props.value}</Text>
+    <View style={[styles.tile, tileStyle, tilePositionStyle]}>
+      <Text style={[ styles.tileText,tileTextStyle]}>{props.value}</Text>
     </View>
   )
 }
+
+export default Tile
